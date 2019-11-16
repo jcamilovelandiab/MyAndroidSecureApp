@@ -1,10 +1,12 @@
 package com.example.myappandroidsecure;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.myappandroidsecure.ui.login.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -24,9 +26,11 @@ public class LaunchActivity extends AppCompatActivity
                 getSharedPreferences( getString(R.string.preference_file_key), Context.MODE_PRIVATE );
 
         if(sharedPref.contains(TOKEN_KEY)){
-            //TODO go to MainActivity
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }else{
-            //TODO go to LoginActivity
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
     }
 
